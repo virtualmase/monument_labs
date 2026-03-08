@@ -1,143 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monument Labs | Alpine Institutional Research</title>
+    <title>Monument Labs | Innovating Autonomous Infrastructure</title>
+    
+    <meta name="description" content="Monument Labs directs the infrastructure layer for agentic swarms, facilitating distributed inference and carbon-aware compute through SH-Commit.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Monument Labs",
+      "applicationCategory": "InfrastructureApplication",
+      "operatingSystem": "Aetheris OS Kernel",
+      "description": "An innovated IaaS platform facilitating distributed inference and autonomous compute management.",
+      "author": {
+        "@type": "Person",
+        "name": "Mason Nguyen",
+        "jobTitle": "Senior SEO Strategist & Full-Stack Founder"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+        :root {
+            --midnight: #020305;
+            --accent-blue: #38bdf8;
+            --glass-stroke: rgba(255, 255, 255, 0.08);
+        }
+        body {
+            background-color: var(--midnight);
+            color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+        }
+        h1, h2, h3, .nav-logo { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
         
-        :root { --glacier: #f8fafd; --slate: #0f172a; }
-        body { font-family: 'Inter', sans-serif; background: var(--glacier); color: var(--slate); -webkit-font-smoothing: antialiased; }
-        .serif { font-family: 'Playfair Display', serif; }
-
-        /* Institutional Typography */
-        .h-tight { letter-spacing: -0.04em; }
-        .h-wide { letter-spacing: 0.35em; }
-        @media (min-width: 1024px) { .hero-title { font-size: 10rem; } .h-wide { letter-spacing: 0.5em; } }
-
-        /* Video Infrastructure */
-        .video-container { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--glacier); }
-        .node-video { position: absolute; inset: 0; transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
-        
-        /* UI Elements */
-        .glass-panel { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(30px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .btn-inst { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3em; padding: 1.25rem 2.5rem; transition: all 0.4s ease; border: 1px solid rgba(15, 23, 42, 0.1); background: #fff; }
-        .btn-inst:hover { background: var(--slate); color: #fff; letter-spacing: 0.4em; }
-
-        /* Registry Interactions */
-        .registry-row { position: relative; overflow: hidden; transition: background 0.4s ease; cursor: pointer; }
-        .registry-row:hover { background: rgba(255,255,255,0.8); }
-        .registry-row::after { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent); transition: none; }
-        .registry-row:hover::after { left: 100%; transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hudson-grid {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        .monument-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(25px);
+            border: 0.5px solid var(--glass-stroke);
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .monument-card:hover { border-color: var(--accent-blue); box-shadow: 0 0 30px rgba(56, 189, 248, 0.05); }
+        .text-gradient { background: linear-gradient(180deg, #fff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="hudson-grid">
 
-    <div class="video-container">
-        <div id="bg-alpine" class="node-video opacity-20">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover"><source src="https://path-to-alpine.mp4" type="video/mp4"></video>
-        </div>
-        <div id="bg-lab" class="node-video opacity-0">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60"><source src="https://path-to-lab.mp4" type="video/mp4"></video>
-        </div>
-        <div class="absolute inset-0 bg-white/40 mix-blend-screen pointer-events-none"></div>
-    </div>
-
-    <nav class="fixed top-0 w-full z-[100] px-6 lg:px-12 h-24 flex items-center justify-between pointer-events-none">
-        <div class="flex items-center space-x-3 pointer-events-auto">
-            <i data-lucide="mountain" class="w-4 h-4 opacity-40"></i>
-            <span class="serif text-xl lg:text-2xl h-tight font-medium">MONUMENT</span>
-        </div>
-        <div class="flex space-x-12 pointer-events-auto items-center">
-            <a href="#intelligence" class="text-[9px] h-wide uppercase font-semibold opacity-60">Intelligence</a>
-            <button onclick="document.getElementById('vault').classList.remove('hidden')" class="text-[9px] h-wide uppercase font-semibold underline underline-offset-8">Vault</button>
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/40 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
+            <div class="nav-logo text-xl font-bold text-white tracking-tighter">MONUMENT<span class="text-sky-500 font-light">LABS</span></div>
+            <div class="hidden md:flex items-center space-x-10 text-[10px] uppercase tracking-[0.3em] text-slate-400">
+                <a href="#logic" class="hover:text-white transition">Deployment Logic</a>
+                <a href="#sh-commit" class="hover:text-white transition">SH-Commit</a>
+                <a href="#" class="px-5 py-2 monument-card text-white hover:bg-white hover:text-black transition">Direct Node</a>
+            </div>
         </div>
     </nav>
 
-    <header class="relative min-h-screen flex items-center px-6 lg:px-32">
-        <div class="max-w-5xl">
-            <div class="mb-12 flex items-center space-x-6 opacity-40">
-                <span class="text-[9px] h-wide uppercase font-semibold">Institutional Node</span>
-                <div class="h-[1px] w-24 bg-slate-900"></div>
-            </div>
-            <h1 class="serif text-6xl lg:hero-title font-normal leading-[0.85] h-tight mb-16">
-                Biological <br><span class="italic opacity-30">Sovereignty.</span>
-            </h1>
-            <p class="text-slate-500 text-xl lg:text-2xl max-w-xl mb-20 font-light leading-relaxed">
-                Facilitated by alpine isolation and innovated molecular engineering. We utilize extensive mapping to spearhead the journey toward peak resilience.
-            </p>
-            <div class="flex items-center space-x-8">
-                <button class="btn-inst">The Manifesto</button>
-                <button class="text-[9px] h-wide uppercase font-bold text-slate-400">Active Pipeline</button>
-            </div>
-        </div>
-    </header>
-
-    <section id="intelligence" class="bg-white py-64 px-6 lg:px-32 relative z-10">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32">
-            <div>
-                <h2 class="serif text-5xl lg:text-7xl h-tight mb-12">Directed by <br>Precision.</h2>
-                <p class="text-slate-500 text-lg font-light leading-loose max-w-md">
-                    Our ability to maintain detailed purity standards is spearheaded by isolationist manufacturing across the industry.
-                </p>
-            </div>
-            <div class="space-y-32">
-                <div class="registry-row p-8 border border-slate-100">
-                    <span class="text-[9px] h-wide uppercase font-bold text-slate-300 block mb-6">Protocol 01</span>
-                    <h3 class="serif text-4xl h-tight mb-4">Cryo-Logic</h3>
-                    <p class="text-slate-400 font-light italic">Utilizing Norvoc-Core AI to bridge metabolic gaps through extensive mapping.</p>
-                </div>
-                <div class="registry-row p-8 border border-slate-100">
-                    <span class="text-[9px] h-wide uppercase font-bold text-slate-300 block mb-6">Protocol 02</span>
-                    <h3 class="serif text-4xl h-tight mb-4">Katin Synthesis</h3>
-                    <p class="text-slate-400 font-light italic">Leveraging quantum modeling for architectural biological support directed by Sanctuary nodes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 text-white/40 py-24 px-6 lg:px-32">
-        <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/5 pb-20 mb-12">
-            <div>
-                <span class="text-[8px] h-wide uppercase font-bold text-slate-500 block mb-4">St. Moritz Node</span>
-                <span class="text-[10px] h-standard text-white uppercase tracking-widest">Active Synthesis</span>
-            </div>
-            <div>
-                <span class="text-[8px] h-wide uppercase font-bold text-slate-500 block mb-4">Dubai Node</span>
-                <span class="text-[10px] h-standard text-white uppercase tracking-widest">Distribution Live</span>
-            </div>
-            <div>
-                <span class="text-[8px] h-wide uppercase font-bold text-slate-500 block mb-4">Irvine Node</span>
-                <span class="text-[10px] h-standard text-white uppercase tracking-widest">Ethics Verified</span>
-            </div>
-            <div>
-                <span class="text-[8px] h-wide uppercase font-bold text-slate-500 block mb-4">Logic Flow</span>
-                <span class="text-[10px] h-standard text-white uppercase tracking-widest">Norvoc-Core 4.2</span>
-            </div>
-        </div>
-        <div class="flex justify-between items-center text-[8px] h-wide uppercase">
-            <span>Monument Laboratories © 2026</span>
-            <div class="flex space-x-12"><span>Privacy Protocol</span><span>Terms of Access</span></div>
-        </div>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-        const alpineBg = document.getElementById('bg-alpine');
-        const labBg = document.getElementById('bg-lab');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.target.id === 'intelligence') {
-                    alpineBg.style.opacity = '0'; labBg.style.opacity = '1';
-                } else if (entry.isIntersecting) {
-                    alpineBg.style.opacity = '0.2'; labBg.style.opacity = '0';
-                }
-            });
-        }, { threshold: 0.2 });
-        document.querySelectorAll('section, header').forEach(s => observer.observe(s));
-    </script>
-</body>
-</html>
+    <header class="relative pt-48 pb-32 px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
+        <div class="absolute top-1/4 w-[500px] h-[500px] bg-sky-500/5 blur-[120px] rounded-full"></div>
+        <div class="border border-sky-500/20 px-4 py-1 text-[10px] uppercase tracking-widest text-sky-400 mb-8">System Status: Authenticated</div>
+        <h1 class="text-6xl md:text-8xl font-bold text-gradient leading-tight mb-8">INNOVATING <br>INFERENCE.</h1>
+        <p class="text-xl text-slate-400 max-w-2xl font-light mb-12">
+            Utilizing agentic workflows to facilitate the scaling
